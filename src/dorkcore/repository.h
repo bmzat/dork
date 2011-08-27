@@ -136,6 +136,10 @@ namespace dork {
           QString svPlugins();
           void svPlugins(QString val);
 
+          QString svRepoVersion();
+          void svRepoVersion(QString val);
+
+          QScriptValue getDRC(QString name);
 
           private:
           	QString url;

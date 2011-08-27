@@ -178,7 +178,7 @@ void RepositoryTest::testRepoInitDirectory()
 {
     dork::Repository *repo = new dork::Repository();
     dork::Repository::RepoError re;
-
+    QString sv_repoversion;
     if(repo==NULL){
         QFAIL("new dork::Repository() failed");
     }
@@ -189,9 +189,14 @@ void RepositoryTest::testRepoInitDirectory()
         qDebug() << "UNEXPECTED RETURN:" << re;
         QFAIL(" WOOOO ");
     }
+    repo->svRepoVersion("testing 123");
     re = repo->repoInit();
+    if(re==repo->errOK){
+        sv_repoversion = repo->svRepoVersion();
+        qDebug() << repo->getDRC("cl_willi").toString();
+    }
     delete repo;
-    QVERIFY(re==repo->errOK);
+    QVERIFY(sv_repoversion!="");
 }
 
 
