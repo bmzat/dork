@@ -2,6 +2,7 @@
 #include <QUrl>
 #include <QSqlDatabase>
 #include <QDebug>
+#include <QScriptSyntaxCheckResult>
 
 namespace dork {
 
@@ -24,7 +25,7 @@ namespace dork {
       sv_plugins = "";
       qse.globalObject().setProperty("sv_url",sv_url);
       qse.globalObject().setProperty("sv_basedir",sv_basedir);
-      qse.globalObject().setProperty("sv_repoverion",sv_repoversion);
+      qse.globalObject().setProperty("sv_repoversion",sv_repoversion);
       qse.globalObject().setProperty("sv_plugin",sv_url);
     }
 
@@ -79,11 +80,11 @@ void dork::Repository::svUrl(QString url)
 
 QString dork::Repository::svUrl()
 {
-    return sv_url.toString();
+    return qse.globalObject().property("sv_url").toString();
 }
 
 QString dork::Repository::svPlugins()
-{ return sv_plugins.toString();
+{ return qse.globalObject().property("sv_plugins").toString();
 }
 
 void dork::Repository::svPlugins(QString val)
@@ -108,15 +109,18 @@ dork::Repository::RepoError dork::Repository::repoInit()
     if(drc.open(QFile::WriteOnly)){
         drc.write("// DoRK Repository\n");
         QString foo;
-        foo += QString("sv_url = \"") + sv_url.toString() + QString("\"\n");
+        foo += QString("sv_url = \"") + sv_url.toString() + QString("\";\n");
         drc.write(foo.toAscii());
-        drc.write("sv_plugins=\"\"");
+        drc.write("sv_plugins=\"lala\";\n");
+        drc.write("sv_repoversion=\"v1 in JS\";\n");
+        drc.write("cl_plugins=\"lulu\";\n");
         drc.close();
     }else{
         qDebug() << "could not create File: " << drc.fileName();
         return errWriteFailed;
     }
-
+    execScript(dirBase.absolutePath()+QString("/repo.drk"));
+    qDebug() << sv_repoversion.toString();
     return errOK;
 }
 
@@ -128,8 +132,24 @@ bool dork::Repository::execScript(QString fileName)
     QTextStream stream(&scriptFile);
     QString contents = stream.readAll();
     scriptFile.close();
+    qDebug() << QString("SCRIPT: \n") << contents << "\n\n";
+    QScriptSyntaxCheckResult sr=qse.checkSyntax(contents);
+    if(sr.state()!=sr.Valid){
+        qWarning() << sr.errorMessage();
+    }
     qse.evaluate(contents, fileName);
+    qDebug() << qse.globalObject().property("cl_plugins").toString();
+    qDebug() << qse.globalObject().property("sv_repoversion").toString();
     return true;
 }
 
+void dork::Repository::svRepoVersion(QString val)
+{
+    sv_repoversion.setData(val);
+}
+
+QString dork::Repository::svRepoVersion()
+{
+    return qse.globalObject().property("sv_repoversion").toString();
+}
 // namespace dork

@@ -136,6 +136,8 @@ namespace dork {
           QString svPlugins();
           void svPlugins(QString val);
 
+          QString svRepoVersion();
+          void svRepoVersion(QString val);
 
           private:
           	QString url;
