@@ -191,9 +191,11 @@ void RepositoryTest::testRepoInitDirectory()
         qDebug() << "UNEXPECTED RETURN:" << re;
         QFAIL(" WOOOO ");
     }
+    repo->svRepoVersion("testing 123");
     re = repo->repoInit();
     if(re==repo->errOK){
         sv_repoversion = repo->svRepoVersion();
+        qDebug() << repo->getDRC("cl_willi").toString();
     }
     delete repo;
     QVERIFY(sv_repoversion!="");

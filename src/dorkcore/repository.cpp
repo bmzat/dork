@@ -89,7 +89,7 @@ QString dork::Repository::svPlugins()
 
 void dork::Repository::svPlugins(QString val)
 {
-    sv_plugins = val;
+    qse.globalObject().setProperty("sv_plugins",val);
 }
 
 dork::Repository::RepoError dork::Repository::repoInit()
@@ -112,6 +112,7 @@ dork::Repository::RepoError dork::Repository::repoInit()
         foo += QString("sv_url = \"") + sv_url.toString() + QString("\";\n");
         drc.write(foo.toAscii());
         drc.write("sv_plugins=\"lala\";\n");
+        drc.write("cl_willi=\"lala\" + sv_repoversion;\n");
         drc.write("sv_repoversion=\"v1 in JS\";\n");
         drc.write("cl_plugins=\"lulu\";\n");
         drc.close();
@@ -145,11 +146,16 @@ bool dork::Repository::execScript(QString fileName)
 
 void dork::Repository::svRepoVersion(QString val)
 {
-    sv_repoversion.setData(val);
+    qse.globalObject().setProperty("sv_repoversion",val);
 }
 
 QString dork::Repository::svRepoVersion()
 {
     return qse.globalObject().property("sv_repoversion").toString();
+}
+
+QScriptValue dork::Repository::getDRC(QString name)
+{
+    return qse.globalObject().property(name);
 }
 // namespace dork
