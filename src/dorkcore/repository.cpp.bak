@@ -1,0 +1,20 @@
+#include "repository.h"
+
+
+namespace dork {
+
+		const unsigned long rfDirty	=0x0001;
+		const unsigned long rfInit	=0x0002;
+		const unsigned long rfNotOPN=0x0000;
+
+    Repository::Repository()
+    {
+    	rflags = rfNotOPN;
+    	url=0;
+    	
+    }
+
+
+		RepoError Repository::repoOpen(QString url);
+
+} // namespace dork

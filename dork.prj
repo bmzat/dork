@@ -1,0 +1,27 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Project Information]
+Use Relative Directory=1
+Relative to Project File=1
+Compilable=1
+[uemakeXp]
+Compiler=Configs\MinGW Compiler\Win32 Console Application
+[Group]
+0=src
+1=src - libdork
+2=tests
+3=tests - libdork_testsuite_01
+[Files - src]
+0=src\src.pro
+[Files - src - libdork]
+0=src\libdork\blob.cpp
+1=src\libdork\blob.h
+2=src\libdork\libdork.pro
+3=src\libdork\libdork_global.h
+4=src\libdork\repository.cpp
+5=src\libdork\repository.h
+[Files - tests]
+0=tests\tests.pro
+[Files - tests - libdork_testsuite_01]
+0=tests\libdork-testsuite-01\libdork-testsuite-01.pro
+1=tests\libdork-testsuite-01\tst_repositorytest.cpp
