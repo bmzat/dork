@@ -169,8 +169,6 @@ void RepositoryTest::testRepoOpenUninitialized()
     if(repo==NULL){
         QFAIL("new dork::Repository() failed");
     }
-
-
     re = repo->repoOpen(urlstring);
     delete repo;
     QVERIFY(re==repo->errIsNoRepo);
