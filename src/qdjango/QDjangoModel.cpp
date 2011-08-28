@@ -31,6 +31,11 @@
 QDjangoModel::QDjangoModel(QObject *parent)
     : QObject(parent)
 {
+    this->objectName();
+}
+
+QDjangoModel::~QDjangoModel(){
+    this->objectName();
 }
 
 /** Returns the primary key for this QDjangoModel.
@@ -102,4 +107,6 @@ QString QDjangoModel::toString() const
     const QByteArray pkName = metaModel.primaryKey();
     return QString("%1(%2=%3)").arg(metaObject()->className(), QString::fromLatin1(pkName), property(pkName).toString());
 }
+
+
 

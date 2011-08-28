@@ -20,6 +20,7 @@
 #ifndef QDJANGO_HTTP_RESPONSE_H
 #define QDJANGO_HTTP_RESPONSE_H
 
+#include "qdjango_global.h"
 #include <QObject>
 
 class QDjangoHttpResponsePrivate;
@@ -28,7 +29,7 @@ class QDjangoHttpResponsePrivate;
  *
  * \ingroup Http
  */
-class QDjangoHttpResponse : public QObject
+class LIBQDJANGOSHARED_EXPORT QDjangoHttpResponse : public QObject
 {
     Q_OBJECT
 

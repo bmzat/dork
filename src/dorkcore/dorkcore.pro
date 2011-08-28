@@ -3,24 +3,36 @@
 # Project created by QtCreator 2011-08-25T23:52:44
 #
 #-------------------------------------------------
+include(../../dork.pri)
 
 QT       += network sql script
 
 QT       -= gui
 
-DLLDESTDIR = ../../bin
+DESTDIR = ../../bin
+#DLLDESTDIR = ../../bin
 
 TARGET = dorkcore
 TEMPLATE = lib
+CONFIG += dll
 
 DEFINES += LIBDORK_LIBRARY
 
 SOURCES += repository.cpp \
-    blob.cpp
+    blob.cpp \
+    branch.cpp \
+    dirtree.cpp \
+    commit.cpp
 
 HEADERS += repository.h\
         libdork_global.h \
-    blob.h
+    blob.h \
+    branch.h \
+    dirtree.h \
+    commit.h
+
+LIBS += -L$$DESTDIR -lqdjango
+INCLUDEPATH += ../qdjango
 
 symbian {
     MMP_RULES += EXPORTUNFROZEN
@@ -40,3 +52,9 @@ unix:!symbian {
     }
     INSTALLS += target
 }
+
+RESOURCES += \
+    dorkcore.qrc
+
+OTHER_FILES += \
+    resources/repo.js

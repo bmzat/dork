@@ -3,15 +3,17 @@
 # Project created by QtCreator 2011-08-25T23:52:44
 #
 #-------------------------------------------------
-
+include(../../dork.pri)
 QT       += network sql script
 
 QT       -= gui
 
-DLLDESTDIR = ../../bin
+DESTDIR = ../../bin
+#DLLDESTDIR = ../../bin
 
 TARGET = qdjango
 TEMPLATE = lib
+CONFIG += dll
 
 DEFINES += QDJANGO_LIBRARY
 
@@ -26,6 +28,7 @@ symbian {
     addFiles.path = !:/sys/bin
     DEPLOYMENT += addFiles
 }
+
 
 unix:!symbian {
     maemo5 {
@@ -51,7 +54,8 @@ HEADERS += \
     QDjangoHttpRequest.h \
     QDjangoHttpController.h \
     QDjango_p.h \
-    QDjango.h
+    QDjango.h \
+    qdjango_global.h
 
 SOURCES += \
     QDjangoWhere.cpp \

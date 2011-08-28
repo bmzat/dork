@@ -20,6 +20,8 @@
 #ifndef QDJANGO_P_H
 #define QDJANGO_P_H
 
+#include "qdjango_global.h"
+
 #include <QDebug>
 #include <QDateTime>
 #include <QMap>
@@ -34,7 +36,7 @@
  *
  * \internal
  */
-class QDjangoMetaField
+class LIBQDJANGOSHARED_EXPORT QDjangoMetaField
 {
 public:
     QDjangoMetaField();
@@ -55,7 +57,7 @@ public:
  *
  * \internal
  */
-class QDjangoMetaModel
+class LIBQDJANGOSHARED_EXPORT QDjangoMetaModel
 {
 public:
     QDjangoMetaModel(const QObject *model = 0);

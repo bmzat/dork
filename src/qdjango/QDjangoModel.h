@@ -20,9 +20,11 @@
 #ifndef QDJANGO_MODEL_H
 #define QDJANGO_MODEL_H
 
+#include "qdjango_global.h"
 #include <QObject>
 #include <QVariant>
-
+//#include "QDjangoQuerySet.h"
+//#include "QDjangoWhere.h"
 /** \brief The QDjangoModel class is the base class for all models.
  *
  *  To declare your own model, create a class which inherits QDjangoModel
@@ -63,7 +65,7 @@
  *
  * \ingroup Database
  */
-class QDjangoModel : public QObject
+class LIBQDJANGOSHARED_EXPORT QDjangoModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QVariant pk READ pk WRITE setPk)
@@ -71,6 +73,7 @@ class QDjangoModel : public QObject
 
 public:
     QDjangoModel(QObject *parent = 0);
+    ~QDjangoModel();
 
     QVariant pk() const;
     void setPk(const QVariant &pk);
@@ -83,6 +86,16 @@ public slots:
 protected:
     QObject *foreignKey(const char *name) const;
     void setForeignKey(const char *name, QObject *value);
+public: /*static*/
+#if 0
+        template<typename T>static T*  byPK(QVariant *val){
+        const QDjangoMetaModel metaModel = QDjango::metaModel(metaObject()->className());
+        QString pkn = metaModel.primaryKey();
+        QDjangoQuerySet<T> qs;
+        T* retval = qs.get(QDjangoWhere(pkn, QDjangoWhere::Equals, val));
+        return retval;
+    };
+#endif
 };
 
 #endif

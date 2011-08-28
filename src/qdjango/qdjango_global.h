@@ -1,0 +1,17 @@
+#ifndef QGJANGO_GLOBAL_H
+#define QGJANGO_GLOBAL_H
+
+#ifndef LIBQDJANGO_GLOBAL_H
+#define LIBQDJANGO_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(QDJANGO_LIBRARY)
+#  define LIBQDJANGOSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define LIBQDJANGOSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // LIBDORK_GLOBAL_H
+
+#endif // QGJANGO_GLOBAL_H

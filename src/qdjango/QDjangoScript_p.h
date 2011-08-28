@@ -20,6 +20,7 @@
 #ifndef QDJANGO_SCRIPT_P_H
 #define QDJANGO_SCRIPT_P_H
 
+#include "qdjango_global.h"
 //
 //  W A R N I N G
 //  -------------
@@ -27,7 +28,7 @@
 // This file is not part of the QDjango API.
 //
 
-QDjangoWhere QDjangoWhereFromScriptValue(QScriptEngine *engine, const QScriptValue &obj);
+QDjangoWhere LIBQDJANGOSHARED_EXPORT QDjangoWhereFromScriptValue(QScriptEngine *engine, const QScriptValue &obj);
 
 template <class T>
 static QScriptValue QDjangoQuerySet_all(QScriptContext *context, QScriptEngine *engine)

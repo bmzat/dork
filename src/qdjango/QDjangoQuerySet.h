@@ -20,6 +20,7 @@
 #ifndef QDJANGO_QUERYSET_H
 #define QDJANGO_QUERYSET_H
 
+#include "qdjango_global.h"
 #include "QDjango.h"
 #include "QDjangoWhere.h"
 #include "QDjangoQuerySet_p.h"

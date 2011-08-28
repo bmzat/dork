@@ -20,6 +20,7 @@
 #ifndef HTTP_SERVER_H
 #define HTTP_SERVER_H
 
+#include "qdjango_global.h"
 #include <QTcpServer>
 
 class QDjangoHttpController;
@@ -34,7 +35,7 @@ class QDjangoHttpServerPrivate;
  *
  * \ingroup Http
  */
-class QDjangoHttpServer : public QTcpServer
+class LIBQDJANGOSHARED_EXPORT QDjangoHttpServer : public QTcpServer
 {
     Q_OBJECT
 

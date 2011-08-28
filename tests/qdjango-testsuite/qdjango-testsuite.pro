@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+include(../../dork.pri)
 QT       += sql script testlib network
 
 QT       -= gui
@@ -40,7 +41,7 @@ SOURCES += \
     auth_tests.cpp \
     auth_models.cpp
 
-EXTRA_BINFILES = $${OTHER_FILES}
+EXTRA_BINFILES = $$BASEDIR/tests/qdjango-testsuite/main.js
 
 linux-g++{
     for(FILE,EXTRA_BINFILES){
