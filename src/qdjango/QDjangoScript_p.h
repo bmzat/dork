@@ -28,7 +28,7 @@
 // This file is not part of the QDjango API.
 //
 
-QDjangoWhere QDjangoWhereFromScriptValue(QScriptEngine *engine, const QScriptValue &obj);
+QDjangoWhere LIBQDJANGOSHARED_EXPORT QDjangoWhereFromScriptValue(QScriptEngine *engine, const QScriptValue &obj);
 
 template <class T>
 static QScriptValue QDjangoQuerySet_all(QScriptContext *context, QScriptEngine *engine)

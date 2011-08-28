@@ -31,7 +31,7 @@
 QDjangoModel::QDjangoModel(QObject *parent)
     : QObject(parent)
 {
-    parent->objectName();
+    this->objectName();
 }
 
 QDjangoModel::~QDjangoModel(){

@@ -3,12 +3,13 @@
 # Project created by QtCreator 2011-08-25T23:52:44
 #
 #-------------------------------------------------
-
+include(../../dork.pri)
 QT       += network sql script
 
 QT       -= gui
 
-DLLDESTDIR = ../../bin
+DESTDIR = ../../bin
+#DLLDESTDIR = ../../bin
 
 TARGET = qdjango
 TEMPLATE = lib
@@ -27,6 +28,7 @@ symbian {
     addFiles.path = !:/sys/bin
     DEPLOYMENT += addFiles
 }
+
 
 unix:!symbian {
     maemo5 {

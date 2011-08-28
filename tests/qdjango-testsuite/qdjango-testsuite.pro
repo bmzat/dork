@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+include(../../dork.pri)
 QT       += sql script testlib network
 
 QT       -= gui

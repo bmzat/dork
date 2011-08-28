@@ -56,7 +56,7 @@ private:
 
 /** \internal
  */
-class QDjangoQuerySetPrivate
+class LIBQDJANGOSHARED_EXPORT QDjangoQuerySetPrivate
 {
 public:
     QDjangoQuerySetPrivate(const QString &modelName);

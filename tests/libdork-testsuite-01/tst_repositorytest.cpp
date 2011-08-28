@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 
-#include "../../src/dorkcore/repository.h"
+#include <repository.h>
 
 class RepositoryTest : public QObject
 {

@@ -3,12 +3,14 @@
 # Project created by QtCreator 2011-08-25T23:52:44
 #
 #-------------------------------------------------
+include(../../dork.pri)
 
 QT       += network sql script
 
 QT       -= gui
 
-DLLDESTDIR = ../../bin
+DESTDIR = ../../bin
+#DLLDESTDIR = ../../bin
 
 TARGET = dorkcore
 TEMPLATE = lib
