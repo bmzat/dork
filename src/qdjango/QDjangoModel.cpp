@@ -31,6 +31,11 @@
 QDjangoModel::QDjangoModel(QObject *parent)
     : QObject(parent)
 {
+    parent->objectName();
+}
+
+QDjangoModel::~QDjangoModel(){
+    this->objectName();
 }
 
 /** Returns the primary key for this QDjangoModel.

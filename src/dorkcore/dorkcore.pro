@@ -12,6 +12,7 @@ DLLDESTDIR = ../../bin
 
 TARGET = dorkcore
 TEMPLATE = lib
+CONFIG += dll
 
 DEFINES += LIBDORK_LIBRARY
 

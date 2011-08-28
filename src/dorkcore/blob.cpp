@@ -2,7 +2,7 @@
 
 namespace dork {
 
-Blob::Blob(QObject *parent)
+Blob::Blob(QObject *parent):QDjangoModel(parent)
 {
 }
 

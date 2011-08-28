@@ -20,6 +20,7 @@
 #ifndef QDJANGO_QUERYSET_P_H
 #define QDJANGO_QUERYSET_P_H
 
+#include "qdjango_global.h"
 //
 //  W A R N I N G
 //  -------------
@@ -35,7 +36,7 @@ class QDjangoMetaModel;
 
 /** \internal
  */
-class QDjangoCompiler
+class LIBQDJANGOSHARED_EXPORT QDjangoCompiler
 {
 public:
     QDjangoCompiler(const QString &modelName, const QSqlDatabase &db);

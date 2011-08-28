@@ -20,6 +20,7 @@
 #ifndef HTTP_HANDLER_H
 #define HTTP_HANDLER_H
 
+#include "qdjango_global.h"
 #include <QDateTime>
 #include <QString>
 
@@ -34,7 +35,7 @@ QDateTime httpDateTime(const QString &str);
  *
  * \ingroup Http
  */
-class QDjangoHttpController
+class LIBQDJANGOSHARED_EXPORT QDjangoHttpController
 {
 public:
     // get basic authorization credentials

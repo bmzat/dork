@@ -19,6 +19,7 @@
 
 #ifndef QDJANGO_SCRIPT_H
 #define QDJANGO_SCRIPT_H
+#include "qdjango_global.h"
 
 #include <QtScript/QScriptValue>
 #include <QtScript/QScriptEngine>
@@ -36,7 +37,7 @@ Q_DECLARE_METATYPE(QDjangoWhere)
  *
  * \ingroup Script
  */
-class QDjangoScript
+class LIBQDJANGOSHARED_EXPORT QDjangoScript
 {
 public:
     template <class T>

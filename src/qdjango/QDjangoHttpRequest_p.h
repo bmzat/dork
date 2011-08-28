@@ -20,6 +20,7 @@
 #ifndef QDJANGO_HTTP_REQUEST_P_H
 #define QDJANGO_HTTP_REQUEST_P_H
 
+#include "qdjango_global.h"
 //
 //  W A R N I N G
 //  -------------
@@ -31,7 +32,7 @@
 
 /** \internal
  */
-class QDjangoHttpRequestPrivate
+class LIBQDJANGOSHARED_EXPORT QDjangoHttpRequestPrivate
 {
 public:
     void readFromSocket(QIODevice *socket);

@@ -20,6 +20,7 @@
 #ifndef QDJANGO_HTTP_REQUEST_H
 #define QDJANGO_HTTP_REQUEST_H
 
+#include "qdjango_global.h"
 #include <QString>
 
 class QDjangoHttpRequest;
@@ -29,7 +30,7 @@ class QDjangoHttpRequestPrivate;
  *
  * \ingroup Http
  */
-class QDjangoHttpRequest
+class LIBQDJANGOSHARED_EXPORT QDjangoHttpRequest
 {
 public:
     QDjangoHttpRequest();

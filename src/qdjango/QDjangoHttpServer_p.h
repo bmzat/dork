@@ -20,6 +20,7 @@
 #ifndef QDJANGO_HTTP_SERVER_P_H
 #define QDJANGO_HTTP_SERVER_P_H
 
+#include "qdjango_global.h"
 //
 //  W A R N I N G
 //  -------------
@@ -36,7 +37,7 @@ class QDjangoHttpServer;
 
 /** \internal
  */
-class QDjangoHttpConnection : public QObject
+class LIBQDJANGOSHARED_EXPORT QDjangoHttpConnection : public QObject
 {
     Q_OBJECT
 

@@ -12,6 +12,7 @@ DLLDESTDIR = ../../bin
 
 TARGET = qdjango
 TEMPLATE = lib
+CONFIG += dll
 
 DEFINES += QDJANGO_LIBRARY
 
@@ -51,7 +52,8 @@ HEADERS += \
     QDjangoHttpRequest.h \
     QDjangoHttpController.h \
     QDjango_p.h \
-    QDjango.h
+    QDjango.h \
+    qdjango_global.h
 
 SOURCES += \
     QDjangoWhere.cpp \

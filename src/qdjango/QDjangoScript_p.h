@@ -20,6 +20,7 @@
 #ifndef QDJANGO_SCRIPT_P_H
 #define QDJANGO_SCRIPT_P_H
 
+#include "qdjango_global.h"
 //
 //  W A R N I N G
 //  -------------

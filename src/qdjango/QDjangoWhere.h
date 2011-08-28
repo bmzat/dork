@@ -20,7 +20,9 @@
 #ifndef QDJANGO_QUERY_H
 #define QDJANGO_QUERY_H
 
+#include "qdjango_global.h"
 #include <QVariant>
+
 
 class QDjangoMetaModel;
 class QDjangoQuery;
@@ -35,7 +37,7 @@ class QDjangoQuery;
  *
  * \ingroup Database
  */
-class QDjangoWhere
+class LIBQDJANGOSHARED_EXPORT QDjangoWhere
 {
 public:
     /** A comparison operation on a database column value. */
