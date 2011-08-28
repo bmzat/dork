@@ -22,7 +22,8 @@
 
 #include <QObject>
 #include <QVariant>
-
+#include "QDjangoQuerySet.h"
+#include "QDjangoWhere.h"
 /** \brief The QDjangoModel class is the base class for all models.
  *
  *  To declare your own model, create a class which inherits QDjangoModel
@@ -83,6 +84,14 @@ public slots:
 protected:
     QObject *foreignKey(const char *name) const;
     void setForeignKey(const char *name, QObject *value);
+public: /*static*/
+        template<typename T>static T*  byPK(QVariant *val){
+        const QDjangoMetaModel metaModel = QDjango::metaModel(metaObject()->className());
+        QString pkn = metaModel.primaryKey();
+        QDjangoQuerySet<T> qs;
+        T* retval = qs.get(QDjangoWhere(pkn, QDjangoWhere::Equals, val));
+        return retval;
+    };
 };
 
 #endif

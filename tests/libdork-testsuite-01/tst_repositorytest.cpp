@@ -101,7 +101,7 @@ void RepositoryTest::testRepoOpenRemote()
 }
 
 
-QTEST_MAIN(RepositoryTest);
+
 
 #define DEL_REC_LOG 0 //0x09
 void RepositoryTest::delRecursive(QDir d,int rec)
@@ -201,5 +201,5 @@ void RepositoryTest::testRepoInitDirectory()
     QVERIFY(sv_repoversion!="");
 }
 
-
+QTEST_MAIN(RepositoryTest);
 #include "tst_repositorytest.moc"

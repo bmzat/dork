@@ -2,8 +2,7 @@
 
 namespace dork {
 
-Blob::Blob(QObject *parent) :
-    QObject(parent)
+Blob::Blob(QObject *parent)
 {
 }
 

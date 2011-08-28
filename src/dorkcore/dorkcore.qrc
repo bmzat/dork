@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/repo">
+        <file>resources/repo.js</file>
+    </qresource>
+</RCC>

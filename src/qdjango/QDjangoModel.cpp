@@ -103,3 +103,5 @@ QString QDjangoModel::toString() const
     return QString("%1(%2=%3)").arg(metaObject()->className(), QString::fromLatin1(pkName), property(pkName).toString());
 }
 
+
+

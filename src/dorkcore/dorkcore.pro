@@ -16,11 +16,20 @@ TEMPLATE = lib
 DEFINES += LIBDORK_LIBRARY
 
 SOURCES += repository.cpp \
-    blob.cpp
+    blob.cpp \
+    branch.cpp \
+    dirtree.cpp \
+    commit.cpp
 
 HEADERS += repository.h\
         libdork_global.h \
-    blob.h
+    blob.h \
+    branch.h \
+    dirtree.h \
+    commit.h
+
+LIBS += -L$$DESTDIR -lqdjango
+INCLUDEPATH += ../qdjango
 
 symbian {
     MMP_RULES += EXPORTUNFROZEN
@@ -40,3 +49,9 @@ unix:!symbian {
     }
     INSTALLS += target
 }
+
+RESOURCES += \
+    dorkcore.qrc
+
+OTHER_FILES += \
+    resources/repo.js
