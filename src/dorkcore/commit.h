@@ -2,18 +2,15 @@
 #define DORK_COMMIT_H
 
 #include <QDjangoModel.h>
-
+#include "libdork_global.h"
 namespace dork {
 
-class Commit : public QDjangoModel
+class LIBDORKSHARED_EXPORT Commit  : public QDjangoModel
 {
     Q_OBJECT
 public:
     explicit Commit(QObject *parent = 0);
 
-signals:
-
-public slots:
 
 };
 

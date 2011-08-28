@@ -1,0 +1,13 @@
+INPUT(
+./release\repository.o
+./release\blob.o
+./release\branch.o
+./release\dirtree.o
+./release\commit.o
+./release\moc_repository.o
+./release\moc_blob.o
+./release\moc_branch.o
+./release\moc_dirtree.o
+./release\moc_commit.o
+./release\qrc_dorkcore.o
+);

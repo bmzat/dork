@@ -2,18 +2,14 @@
 #define DORK_DIRTREE_H
 
 #include <QDjangoModel.h>
-
+#include "libdork_global.h"
 namespace dork {
 
-class DirTree : public QDjangoModel
+class LIBDORKSHARED_EXPORT DirTree : public QDjangoModel
 {
     Q_OBJECT
 public:
     explicit DirTree(QObject *parent = 0);
-
-signals:
-
-public slots:
 
 };
 

@@ -1,0 +1,13 @@
+INPUT(
+./debug\repository.o
+./debug\blob.o
+./debug\branch.o
+./debug\dirtree.o
+./debug\commit.o
+./debug\moc_repository.o
+./debug\moc_blob.o
+./debug\moc_branch.o
+./debug\moc_dirtree.o
+./debug\moc_commit.o
+./debug\qrc_dorkcore.o
+);

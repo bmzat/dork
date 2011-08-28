@@ -1,0 +1,16 @@
+INPUT(
+./debug\QDjangoWhere.o
+./debug\QDjangoScript.o
+./debug\QDjangoQuerySet.o
+./debug\QDjangoModel.o
+./debug\QDjangoHttpServer.o
+./debug\QDjangoHttpResponse.o
+./debug\QDjangoHttpRequest.o
+./debug\QDjangoHttpController.o
+./debug\QDjango.o
+./debug\moc_QDjangoModel.o
+./debug\moc_QDjangoHttpServer_p.o
+./debug\moc_QDjangoHttpServer.o
+./debug\moc_QDjangoHttpResponse.o
+./debug\moc_QDjango_p.o
+);

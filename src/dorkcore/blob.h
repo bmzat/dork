@@ -2,11 +2,14 @@
 #define DORK_BLOB_H
 
 #include <QObject>
+#include <QDateTime>
 #include <QDjangoModel.h>
+
+#include "libdork_global.h"
 
 namespace dork {
 
-class Blob : public QDjangoModel
+class LIBDORKSHARED_EXPORT Blob : public QDjangoModel
 {
     Q_OBJECT
     Q_PROPERTY(QString key READ key)

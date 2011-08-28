@@ -1,11 +1,12 @@
 #ifndef DORK_BRANCH_H
 #define DORK_BRANCH_H
 
+#include <QObject>
 #include <QDjangoModel.h>
-
+#include "libdork_global.h"
 namespace dork {
 
-class Branch : public QDjangoModel
+class LIBDORKSHARED_EXPORT Branch : public QDjangoModel
 {
     Q_OBJECT
 public:
