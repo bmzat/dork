@@ -1,0 +1,49 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qdjango", "src\qdjango\qdjango.vcproj", "{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dorkcore", "src\dorkcore\dorkcore.vcproj", "{B6299DBE-8EBD-35BD-BF70-86FD76C02A4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78} = {EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tst_repositorytest", "tests\libdork-testsuite-01\tst_repositorytest.vcproj", "{CF7601F4-9667-377C-B025-F3EB7906FEEE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B6299DBE-8EBD-35BD-BF70-86FD76C02A4F} = {B6299DBE-8EBD-35BD-BF70-86FD76C02A4F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tst_qdjango", "tests\qdjango-testsuite\tst_qdjango.vcproj", "{5A227B3A-4272-3317-BA16-63140EEAC4E4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78} = {EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}.Debug|Win32.Build.0 = Debug|Win32
+		{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}.Release|Win32.ActiveCfg = Release|Win32
+		{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}.Release|Win32.Build.0 = Release|Win32
+		{B6299DBE-8EBD-35BD-BF70-86FD76C02A4F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B6299DBE-8EBD-35BD-BF70-86FD76C02A4F}.Debug|Win32.Build.0 = Debug|Win32
+		{B6299DBE-8EBD-35BD-BF70-86FD76C02A4F}.Release|Win32.ActiveCfg = Release|Win32
+		{B6299DBE-8EBD-35BD-BF70-86FD76C02A4F}.Release|Win32.Build.0 = Release|Win32
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Debug|Win32.Build.0 = Debug|Win32
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Release|Win32.ActiveCfg = Release|Win32
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Release|Win32.Build.0 = Release|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Debug|Win32.Build.0 = Debug|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Release|Win32.ActiveCfg = Release|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		QtVersion = msvc2008-4.7.3
+	EndGlobalSection
+EndGlobal

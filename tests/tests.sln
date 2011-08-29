@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tst_repositorytest", "C:/projekte/dork2/tests/libdork-testsuite-01\tst_repositorytest.vcproj", "{CF7601F4-9667-377C-B025-F3EB7906FEEE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tst_qdjango", "C:/projekte/dork2/tests/qdjango-testsuite\tst_qdjango.vcproj", "{5A227B3A-4272-3317-BA16-63140EEAC4E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug|Win32
+		ConfigName.1 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Debug|Win32.Build.0 = Debug|Win32
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Release|Win32.ActiveCfg = Release|Win32
+		{CF7601F4-9667-377C-B025-F3EB7906FEEE}.Release|Win32.Build.0 = Release|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Debug|Win32.Build.0 = Debug|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Release|Win32.ActiveCfg = Release|Win32
+		{5A227B3A-4272-3317-BA16-63140EEAC4E4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
