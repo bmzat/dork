@@ -44,7 +44,8 @@ namespace dork {
     Repository::~Repository(){
 
 		
-        QSqlDatabase::removeDatabase("repobase");
+		QSqlDatabase::database("repobase").close();
+		QSqlDatabase::removeDatabase("repobase");
     }
 
                 Repository::RepoError Repository::repoOpen(QString url)
@@ -128,6 +129,9 @@ dork::Repository::RepoError dork::Repository::repoInit()
         return errWriteFailed;
     }
     execScript(dirBase.absolutePath()+QString("/repo.drk"));
+	QSqlDatabase::database("repobase").setDatabaseName(dirBase.absolutePath()+QString("/repo.db"));
+	QDjango::setDatabase(QSqlDatabase::database("repobase"));
+	QDjango::createTables();
 #if 1
 	qDebug() << qse.globalObject().property("cl_willi").toString();
 #endif

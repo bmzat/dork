@@ -25,12 +25,24 @@ BranchTest::~BranchTest(void)
 void BranchTest::initTestCase()
 {
     QVERIFY2(repo!=NULL,"Invalid Pointer");
+	trd=QDir(".");
+	if(!trd.mkpath("trepo/vault")){
+		QFAIL("Cannot create test Repo");
+	}
+	trd.cd("trepo");
+	QString rdir = trd.absolutePath();
+	QUrl u(rdir);
+	u.setScheme("file");
+	u.setHost("localhost");
+	urlstring = u.toString();
 }
 
 void BranchTest::cleanupTestCase()
 {
     QVERIFY2(repo!=NULL,"Invalid Pointer");
-
+	delRecursive(trd);
+	trd.cdUp();
+	trd.rmdir("trepo");
 }
 
 void BranchTest::delRecursive( QDir d,int rec/*=0*/ )
@@ -91,7 +103,7 @@ void BranchTest::delRecursive( QDir d,int rec/*=0*/ )
 }
 
 #ifdef _MSC_VER
-#if 0
+#if 1
 #ifndef NDEBUG
 #include "GeneratedFiles/Debug/moc_tst_branchtest.cpp"
 #else

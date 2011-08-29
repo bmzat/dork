@@ -24,6 +24,8 @@ private Q_SLOTS:
 
 private:
         dork::Repository *repo;
+		QDir trd;
+		QString urlstring;
 
 
 };
