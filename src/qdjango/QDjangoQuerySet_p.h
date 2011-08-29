@@ -60,6 +60,7 @@ class LIBQDJANGOSHARED_EXPORT QDjangoQuerySetPrivate
 {
 public:
     QDjangoQuerySetPrivate(const QString &modelName);
+	virtual ~QDjangoQuerySetPrivate(){};
 
     void addFilter(const QDjangoWhere &where);
     QDjangoWhere resolvedWhere(const QSqlDatabase &db) const;
@@ -82,11 +83,15 @@ public:
     bool selectRelated;
 
 private:
-    Q_DISABLE_COPY(QDjangoQuerySetPrivate)
+    //Q_DISABLE_COPY(QDjangoQuerySetPrivate)
 
     QString m_modelName;
 
     friend class QDjangoMetaModel;
 };
+
+
+
+
 
 #endif

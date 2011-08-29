@@ -77,7 +77,7 @@ class LIBQDJANGOSHARED_EXPORT QDjangoModel : public QObject
 
 public:
     QDjangoModel(QObject *parent = 0);
-    ~QDjangoModel();
+    virtual ~QDjangoModel();
 
     QVariant pk() const;
     void setPk(const QVariant &pk);

@@ -80,6 +80,7 @@
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=""
 				SubSystem="0"
+				OptimizeReferences="1"
 				LinkTimeCodeGeneration="0"
 			/>
 			<Tool

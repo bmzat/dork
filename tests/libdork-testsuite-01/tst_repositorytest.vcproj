@@ -73,7 +73,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
-				AdditionalDependencies="dorkcore.lib QtTestd4.lib QtScriptd4.lib QtSqld4.lib QtCored4.lib"
+				AdditionalDependencies=" dorkcore.lib  qdjango.lib QtTestd4.lib QtScriptd4.lib QtSqld4.lib QtCored4.lib"
 				OutputFile="..\..\bin\tst_repositorytest.exe"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="$(QTDIR)\lib,C:\projekte\dork2/src/qdjango,C:\projekte\dork2/src/dorkcore,C:\projekte\dork2/bin,../../bin"

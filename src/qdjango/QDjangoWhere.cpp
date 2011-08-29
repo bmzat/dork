@@ -249,3 +249,8 @@ QString QDjangoWhere::sql() const
     return QString();
 }
 
+QDjangoWhere::~QDjangoWhere()
+{
+	return;
+}
+

@@ -8,10 +8,12 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 
-#include <QDjangoModel.h>
 
 #include <branch.h>
 #include <repository.h>
+
+#include <QDjangoModel.h>
+#include <QDjangoQuerySet.h>
 
 BranchTest::BranchTest(void)
 {

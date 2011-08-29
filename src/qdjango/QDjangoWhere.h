@@ -68,6 +68,7 @@ public:
     };
 
     QDjangoWhere();
+	~QDjangoWhere();
     QDjangoWhere(const QString &key, QDjangoWhere::Operation operation, QVariant value);
 
     QDjangoWhere operator!() const;

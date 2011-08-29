@@ -44,7 +44,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="-Zm200 -w34100 -w34189"
-				Optimization="4"
+				Optimization="0"
+				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;,&quot;$(QTDIR)\include\QtNetwork&quot;,&quot;$(QTDIR)\include\QtSql&quot;,&quot;$(QTDIR)\include\QtScript&quot;,&quot;$(QTDIR)\include&quot;,&quot;.&quot;,&quot;..\dorkcore&quot;,&quot;$(QTDIR)\include\ActiveQt&quot;,&quot;debug&quot;,..\..\..\..\QtSDK\Desktop\Qt\4.7.3\msvc2008\mkspecs\default"
 				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QDJANGO_LIBRARY,QT_DLL,QT_SCRIPT_LIB,QT_SQL_LIB,QT_NETWORK_LIB,QT_CORE_LIB,QT_HAVE_MMX,QT_HAVE_3DNOW,QT_HAVE_SSE,QT_HAVE_MMXEXT,QT_HAVE_SSE2,QT_THREAD_SUPPORT"
 				GeneratePreprocessedFile="0"
@@ -80,6 +81,7 @@
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=""
 				SubSystem="0"
+				OptimizeReferences="1"
 				LinkTimeCodeGeneration="0"
 			/>
 			<Tool
@@ -226,9 +228,21 @@
 			<File
 				RelativePath="QDjangoModel.cpp"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						Optimization="0"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="QDjangoQuerySet.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\QDjangoQuerySet_p.cpp"
 				>
 			</File>
 			<File

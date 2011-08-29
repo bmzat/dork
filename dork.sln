@@ -10,6 +10,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tst_repositorytest", "tests\libdork-testsuite-01\tst_repositorytest.vcproj", "{CF7601F4-9667-377C-B025-F3EB7906FEEE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B6299DBE-8EBD-35BD-BF70-86FD76C02A4F} = {B6299DBE-8EBD-35BD-BF70-86FD76C02A4F}
+		{EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78} = {EADBACD1-3C1A-343B-A6B5-0E4C0EFA2A78}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tst_qdjango", "tests\qdjango-testsuite\tst_qdjango.vcproj", "{5A227B3A-4272-3317-BA16-63140EEAC4E4}"

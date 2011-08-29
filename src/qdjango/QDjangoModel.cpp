@@ -21,9 +21,9 @@
 #include <QStringList>
 
 #include "QDjango.h"
-#include "QDjangoModel.h"
 #include "QDjangoQuerySet.h"
 
+#include "QDjangoModel.h"
 /** Construct a new QDjangoModel.
  *
  * \param parent
