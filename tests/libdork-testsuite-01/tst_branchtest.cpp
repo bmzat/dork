@@ -102,6 +102,33 @@ void BranchTest::delRecursive( QDir d,int rec/*=0*/ )
 
 }
 
+void BranchTest::simpleAddElement()
+{
+	dork::Branch *b = new dork::Branch();
+	b->Name("master");
+	b->BranchId("0000-5334-5097-affe");
+	b->CurrentHeadId("000x000x001");
+	b->Desc("Beschreibung 1");
+	QVERIFY(b->save());
+	delete b;
+	b = new dork::Branch();
+	b->Name("lala");
+	b->BranchId("baum-5334-5097-affe");
+	b->CurrentHeadId("5334x000x001");
+	b->Desc("Beschreibung 1");
+	QVERIFY(b->save());
+	delete b;
+	b = new dork::Branch();
+	b->Name("lala");
+	b->BranchId("baum-5334-5097-affe");
+	b->CurrentHeadId("5334x000x001");
+	b->Desc("Beschreibung 1");
+	QVERIFY(b->save());
+	delete b;
+
+
+}
+
 #ifdef _MSC_VER
 #if 1
 #ifndef NDEBUG

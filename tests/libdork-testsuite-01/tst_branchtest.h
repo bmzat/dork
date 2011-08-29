@@ -20,12 +20,13 @@ public:
 private Q_SLOTS:
 		void initTestCase();
 		void cleanupTestCase();
-		void delRecursive(QDir d,int rec=0);
+		void simpleAddElement();
 
 private:
         dork::Repository *repo;
 		QDir trd;
 		QString urlstring;
+		void delRecursive(QDir d,int rec=0);
 
 
 };
