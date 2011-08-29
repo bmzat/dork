@@ -3,6 +3,14 @@
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QScriptSyntaxCheckResult>
+#include <QDjango.h>
+#include <QDjangoScript.h>
+#include <blob.h>
+#include <branch.h>
+
+inline void init3123(){
+	Q_INIT_RESOURCE(dorkcore);
+}
 
 namespace dork {
 
@@ -14,6 +22,7 @@ namespace dork {
 
     Repository::Repository()
     {
+		::init3123();
     	rflags = rfNotOPN;
         url="";
         //qse = new QScriptEngine();
@@ -27,10 +36,14 @@ namespace dork {
       qse.globalObject().setProperty("sv_basedir",sv_basedir);
       qse.globalObject().setProperty("sv_repoversion",sv_repoversion);
       qse.globalObject().setProperty("sv_plugin",sv_url);
+	  QDjango::setDatabase(QSqlDatabase::database("repobase"));
+	  QDjango::registerModel<Blob>();
+      QDjango::registerModel<Branch>();
     }
 
     Repository::~Repository(){
 
+		
         QSqlDatabase::removeDatabase("repobase");
     }
 
@@ -107,20 +120,17 @@ dork::Repository::RepoError dork::Repository::repoInit()
     drc.setFileName(dirBase.absolutePath()+QString("/repo.drk"));
 
     if(drc.open(QFile::WriteOnly)){
-        drc.write("// DoRK Repository\n");
-        QString foo;
-        foo += QString("sv_url = \"") + sv_url.toString() + QString("\";\n");
-        drc.write(foo.toAscii());
-        drc.write("sv_plugins=\"lala\";\n");
-        drc.write("cl_willi=\"lala\" + sv_repoversion;\n");
-        drc.write("sv_repoversion=\"v1 in JS\";\n");
-        drc.write("cl_plugins=\"lulu\";\n");
-        drc.close();
+		drc.close();	
+		drc.remove();
+		QFile::copy(":/repo/resources/repo.js",dirBase.absolutePath()+QString("/repo.drk"));
     }else{
         qDebug() << "could not create File: " << drc.fileName();
         return errWriteFailed;
     }
     execScript(dirBase.absolutePath()+QString("/repo.drk"));
+#if 1
+	qDebug() << qse.globalObject().property("cl_willi").toString();
+#endif
     return errOK;
 }
 

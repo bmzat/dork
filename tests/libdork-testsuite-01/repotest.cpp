@@ -28,12 +28,15 @@ void RepoTest::initTestCase()
 
 void RepoTest::cleanupTestCase()
 {
+#if 0
 	qDebug() << "trd:" << trd.currentPath() << " ## " << trd.absolutePath();
+#endif
 	//trd.cdUp();
-
+#if 1
 	delRecursive(trd);
 	trd.cdUp();
 	trd.rmdir("trepo");
+#endif
 	//QDir d("C:\\");
 	// d.setCurrent("C:\\");
 	//delRecursive(d);
@@ -78,7 +81,7 @@ void RepoTest::testRepoOpenRemote()
 
 
 
-#define DEL_REC_LOG 0 //0x09
+#define DEL_REC_LOG 0x4 //0x09
 void RepoTest::delRecursive(QDir d,int rec)
 {
 #if DEL_REC_LOG&0x01

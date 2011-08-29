@@ -1,4 +1,6 @@
 //
 
 sv_repoversion = "1";
-cl_willi = ""
+cl_willi = "Neue Geschichte";
+
+
