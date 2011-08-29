@@ -23,8 +23,12 @@
 #include "qdjango_global.h"
 #include <QObject>
 #include <QVariant>
-//#include "QDjangoQuerySet.h"
-//#include "QDjangoWhere.h"
+#include <QMetaObject>
+#include "QDjangoQuerySet.h"
+#include "QDjangoWhere.h"
+
+template<typename T> class QDjangoQuerySet;
+
 /** \brief The QDjangoModel class is the base class for all models.
  *
  *  To declare your own model, create a class which inherits QDjangoModel
@@ -87,15 +91,21 @@ protected:
     QObject *foreignKey(const char *name) const;
     void setForeignKey(const char *name, QObject *value);
 public: /*static*/
-#if 0
-        template<typename T>static T*  byPK(QVariant *val){
-        const QDjangoMetaModel metaModel = QDjango::metaModel(metaObject()->className());
-        QString pkn = metaModel.primaryKey();
-        QDjangoQuerySet<T> qs;
-        T* retval = qs.get(QDjangoWhere(pkn, QDjangoWhere::Equals, val));
-        return retval;
-    };
+#if 1
+        static QDjangoMetaModel statMMO(const QMetaObject *mo);
+        static QString statMMPKN(const QMetaObject *mo);
+        static QString statMMPKS(QString cn);
 #endif
 };
+
+
+template<typename T>inline T*  byPK(QVariant val)
+{
+    QMetaObject* mo = (QMetaObject*)&T::staticMetaObject;
+    QString pkn = QDjangoModel::statMMPKS(mo->className());
+    QDjangoQuerySet<T> qs;
+T* retval = qs.get(QDjangoWhere(pkn, QDjangoWhere::Equals, val));
+return retval;
+}
 
 #endif

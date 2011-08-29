@@ -5,6 +5,10 @@
 #include <QtCore/QCoreApplication>
 #include <QDir>
 #include <QUrl>
+#include <QSqlDatabase>
+#include <QSqlError>
+
+#include <QDjangoModel.h>
 
 #include <branch.h>
 #include <repository.h>
@@ -24,6 +28,7 @@ BranchTest::~BranchTest(void)
 
 void BranchTest::initTestCase()
 {
+    dork::Repository::RepoError re;
     QVERIFY2(repo!=NULL,"Invalid Pointer");
 	trd=QDir(".");
 	if(!trd.mkpath("trepo/vault")){
@@ -34,17 +39,30 @@ void BranchTest::initTestCase()
 	QUrl u(rdir);
 	u.setScheme("file");
 	u.setHost("localhost");
-	urlstring = u.toString();
+        urlstring = u.toString();
+        re = repo->repoOpen(urlstring);
+        if(re==repo->errIsNoRepo){
+            re=repo->repoInit();
+            if(re!=repo->errOK){
+                delete repo;
+                QFAIL("X");
+            }
+        }else{
+            QFAIL("Y");
+        }
+
 }
 
 void BranchTest::cleanupTestCase()
 {
     QVERIFY2(repo!=NULL,"Invalid Pointer");
+    repo->repoClose();
+    delete repo;
 	delRecursive(trd);
 	trd.cdUp();
 	trd.rmdir("trepo");
 }
-
+#define DEL_REC_LOG 0x04
 void BranchTest::delRecursive( QDir d,int rec/*=0*/ )
 {
 #if DEL_REC_LOG&0x01
@@ -109,22 +127,39 @@ void BranchTest::simpleAddElement()
 	b->BranchId("0000-5334-5097-affe");
 	b->CurrentHeadId("000x000x001");
 	b->Desc("Beschreibung 1");
-	QVERIFY(b->save());
+        if(!b->save()){
+            QSqlDatabase db = QSqlDatabase::database("repobase");
+            qDebug() << "Database says: " << db.lastError().text();
+            QFAIL("DB001");
+        }
 	delete b;
 	b = new dork::Branch();
 	b->Name("lala");
 	b->BranchId("baum-5334-5097-affe");
 	b->CurrentHeadId("5334x000x001");
 	b->Desc("Beschreibung 1");
-	QVERIFY(b->save());
+        if(!b->save()){
+            QSqlDatabase db = QSqlDatabase::database("repobase");
+            qDebug() << "Database says: " << db.lastError().text();
+            QFAIL("DB002");
+        }
 	delete b;
 	b = new dork::Branch();
-	b->Name("lala");
-	b->BranchId("baum-5334-5097-affe");
+        b->Name("lala2");
+        b->BranchId("baum-5334-5097-ente");
 	b->CurrentHeadId("5334x000x001");
 	b->Desc("Beschreibung 1");
-	QVERIFY(b->save());
+        if(!b->save()){
+            QSqlDatabase db = QSqlDatabase::database("repobase");
+            qDebug() << "Database says: " << db.lastError().text();
+            QFAIL("DB003");
+        }
 	delete b;
+
+        b = ::byPK<dork::Branch>(QVariant("0000-5334-5097-affe"));
+        if(b!=NULL){
+            QVERIFY(b->Name()=="master");
+        }
 
 
 }

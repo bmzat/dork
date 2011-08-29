@@ -108,5 +108,20 @@ QString QDjangoModel::toString() const
     return QString("%1(%2=%3)").arg(metaObject()->className(), QString::fromLatin1(pkName), property(pkName).toString());
 }
 
+QDjangoMetaModel QDjangoModel::statMMO(const QMetaObject *mo)
+{
+    return QDjango::metaModel(mo->className());
+}
 
+QString QDjangoModel::statMMPKN(const QMetaObject *mo)
+{
+    QDjangoMetaModel mm = QDjango::metaModel(mo->className());
+    return mm.primaryKey();
+}
+
+QString QDjangoModel::statMMPKS(QString cn)
+{
+    QDjangoMetaModel mm = QDjango::metaModel(cn);
+    return mm.primaryKey();
+}
 

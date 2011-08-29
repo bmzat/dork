@@ -26,7 +26,11 @@ namespace dork {
     	rflags = rfNotOPN;
         url="";
         //qse = new QScriptEngine();
-        QSqlDatabase::addDatabase("QSQLITE","repobase");
+        db = QSqlDatabase::addDatabase("QSQLITE","repobase");
+        db.setDatabaseName(":memory:");
+        if(!db.open()){
+            qDebug() << "Database Error: " << db.lastError().text();
+        }
       basedir = "";
       sv_url = "";
       sv_basedir = "";
@@ -44,8 +48,8 @@ namespace dork {
     Repository::~Repository(){
 
 		
-		QSqlDatabase::database("repobase").close();
-		QSqlDatabase::removeDatabase("repobase");
+                db.close();
+                db.removeDatabase("repobase");
     }
 
                 Repository::RepoError Repository::repoOpen(QString url)
@@ -129,9 +133,17 @@ dork::Repository::RepoError dork::Repository::repoInit()
         return errWriteFailed;
     }
     execScript(dirBase.absolutePath()+QString("/repo.drk"));
-	QSqlDatabase::database("repobase").setDatabaseName(dirBase.absolutePath()+QString("/repo.db"));
-	QDjango::setDatabase(QSqlDatabase::database("repobase"));
-	QDjango::createTables();
+        if(db.isOpen()){
+            db.close();
+        }
+        db.setDatabaseName(dirBase.absolutePath()+QString("/repo.db"));
+        if(!db.open()){
+            qDebug() << "Error opening Database: " << db.lastError().text();
+            return errSQL;
+        }else{
+            QDjango::setDatabase(db);
+            QDjango::createTables();
+        }
 #if 1
 	qDebug() << qse.globalObject().property("cl_willi").toString();
 #endif
