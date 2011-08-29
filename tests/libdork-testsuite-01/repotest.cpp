@@ -92,7 +92,9 @@ void RepoTest::delRecursive(QDir d,int rec)
 	for(QList<QFileInfo>::iterator iter = qsl.begin();iter!=qsl.end();iter++){
 		QFileInfo finfo(*iter);
 		if ( finfo.isSymLink () ){
+#ifndef REPOTEST_CPP_DEBUG
 			qDebug() << "LINK:" << finfo.absoluteFilePath();
+#endif
 			continue;
 		}
 		if ( finfo.isDir() ) {
@@ -161,14 +163,18 @@ void RepoTest::testRepoInitDirectory()
 
 	re = repo->repoOpen(urlstring);
 	if(re!=repo->errIsNoRepo){
+#ifndef REPOTEST_CPP_DEBUG
 		qDebug() << "UNEXPECTED RETURN:" << re;
+#endif
 		QFAIL(" WOOOO ");
 	}
 	repo->svRepoVersion("testing 123");
 	re = repo->repoInit();
 	if(re==repo->errOK){
 		sv_repoversion = repo->svRepoVersion();
+#ifdef REPOTEST_CPP_DEBUG
 		qDebug() << repo->getDRC("cl_willi").toString();
+#endif
 	}
 	delete repo;
 	QVERIFY(sv_repoversion!="");
@@ -177,7 +183,7 @@ void RepoTest::testRepoInitDirectory()
 
 
 #ifdef _MSC_VER
-#if 0
+#if 1
 #ifndef NDEBUG
 #include "GeneratedFiles/Debug/moc_repotest.cpp"
 #else

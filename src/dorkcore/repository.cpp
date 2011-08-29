@@ -121,7 +121,6 @@ dork::Repository::RepoError dork::Repository::repoInit()
         return errWriteFailed;
     }
     execScript(dirBase.absolutePath()+QString("/repo.drk"));
-    qDebug() << sv_repoversion.toString();
     return errOK;
 }
 
@@ -133,14 +132,14 @@ bool dork::Repository::execScript(QString fileName)
     QTextStream stream(&scriptFile);
     QString contents = stream.readAll();
     scriptFile.close();
-    qDebug() << QString("SCRIPT: \n") << contents << "\n\n";
+    //qDebug() << QString("SCRIPT: \n") << contents << "\n\n";
     QScriptSyntaxCheckResult sr=qse.checkSyntax(contents);
     if(sr.state()!=sr.Valid){
         qWarning() << sr.errorMessage();
     }
     qse.evaluate(contents, fileName);
-    qDebug() << qse.globalObject().property("cl_plugins").toString();
-    qDebug() << qse.globalObject().property("sv_repoversion").toString();
+    //qDebug() << qse.globalObject().property("cl_plugins").toString();
+    //qDebug() << qse.globalObject().property("sv_repoversion").toString();
     return true;
 }
 
