@@ -267,7 +267,7 @@
       <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
       <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MakeStep</value>
       <value key="Qt4ProjectManager.MakeStep.Clean" type="bool">true</value>
-      <value key="Qt4ProjectManager.MakeStep.MakeArguments" type="QString">clean</value>
+      <value key="Qt4ProjectManager.MakeStep.MakeArguments" type="QString">distclean</value>
       <value key="Qt4ProjectManager.MakeStep.MakeCommand" type="QString"></value>
      </valuemap>
      <value key="ProjectExplorer.BuildStepList.StepsCount" type="int">1</value>
@@ -283,7 +283,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">2</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/projekte/dork-mingw-desktop</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">14</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">17</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="QString">ProjectExplorer.ToolChain.Mingw:C:/QtSDK/mingw/bin/g++.exe.x86-windows-msys-pe-32bit.C:/QtSDK/pythongdb/python_2.7based/gdb-i686-pc-mingw32.exe</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">true</value>
    </valuemap>

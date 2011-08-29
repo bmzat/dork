@@ -6,21 +6,30 @@
 #include <QDir>
 #include <QUrl>
 
+#include <branch.h>
+#include <repository.h>
+
 BranchTest::BranchTest(void)
 {
+    repo = new dork::Repository();
 }
 
 BranchTest::~BranchTest(void)
 {
+    if(repo!=NULL){
+        repo->repoClose();
+        delete repo;
+    }
 }
 
 void BranchTest::initTestCase()
 {
-
+    QVERIFY2(repo!=NULL,"Invalid Pointer");
 }
 
 void BranchTest::cleanupTestCase()
 {
+    QVERIFY2(repo!=NULL,"Invalid Pointer");
 
 }
 
@@ -86,9 +95,10 @@ void BranchTest::delRecursive( QDir d,int rec/*=0*/ )
 #ifndef NDEBUG
 #include "GeneratedFiles/Debug/moc_tst_branchtest.cpp"
 #else
-#include "GeneratedFiles/Release/moc_tst_branchtest.cpp"
-#endif
+ #include "GeneratedFiles/Release/moc_tst_branchtest.cpp"
+ #endif
 #endif
 #else
-#include "tst_branchtest.moc"
+//#include "debug/moc_tst_branchest.cpp"
+#include "moc_tst_branchtest.cpp"
 #endif

@@ -185,5 +185,5 @@ void RepoTest::testRepoInitDirectory()
 #endif
 #endif
 #else
-#include "repotest.moc"
+#include "moc_repotest.cpp"
 #endif

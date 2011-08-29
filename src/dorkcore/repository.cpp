@@ -158,4 +158,9 @@ QScriptValue dork::Repository::getDRC(QString name)
 {
     return qse.globalObject().property(name);
 }
+
+dork::Repository::RepoError dork::Repository::repoClose()
+{
+    return errOpNotSupported;
+}
 // namespace dork

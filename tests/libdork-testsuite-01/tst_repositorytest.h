@@ -1,3 +1,6 @@
+#ifndef __AFOO41432__
+#define __AFOO41432__
+
 #include <QDir>
 #include <QUrl>
 #include <repository.h>
@@ -10,3 +13,5 @@ public:
 	TestRepository();
 
 };
+
+#endif

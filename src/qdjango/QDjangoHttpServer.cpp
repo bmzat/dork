@@ -101,7 +101,7 @@ void QDjangoHttpConnection::bytesWritten(qint64 bytes)
             writeResponse();
         } else if (d->closeAfterResponse) {
 #ifdef DEBUG_HTTP
-            qDebug("Closing connection");
+            qDebug() << "Closing Connection - Bytes Written:"<<bytes;
 #endif
             d->socket->close();
             emit closed();
