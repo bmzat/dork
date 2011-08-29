@@ -4,8 +4,7 @@
 #include <QObject>
 #include <QDjangoModel.h>
 #include "libdork_global.h"
-#include "c:\qtsdk\desktop\qt\4.7.3\msvc2008\include\qtcore\qstring.h"
-#include "c:\qtsdk\desktop\qt\4.7.3\msvc2008\include\qtcore\qstring.h"
+#include <QString>
 namespace dork {
 
 class LIBDORKSHARED_EXPORT Branch : public QDjangoModel

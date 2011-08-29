@@ -22,14 +22,16 @@ SOURCES += repository.cpp \
     blob.cpp \
     branch.cpp \
     dirtree.cpp \
-    commit.cpp
+    commit.cpp \
+    direntry.cpp
 
 HEADERS += repository.h\
         libdork_global.h \
     blob.h \
     branch.h \
     dirtree.h \
-    commit.h
+    commit.h \
+    direntry.h
 
 LIBS += -L$$DESTDIR -lqdjango
 INCLUDEPATH += ../qdjango

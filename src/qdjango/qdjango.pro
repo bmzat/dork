@@ -66,4 +66,5 @@ SOURCES += \
     QDjangoHttpResponse.cpp \
     QDjangoHttpRequest.cpp \
     QDjangoHttpController.cpp \
-    QDjango.cpp
+    QDjango.cpp \
+    QDjangoQuerySet_p.cpp
