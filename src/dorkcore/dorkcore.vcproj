@@ -217,6 +217,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DirEntry.cpp"
+				>
+			</File>
+			<File
 				RelativePath="dirtree.cpp"
 				>
 			</File>
@@ -307,6 +311,10 @@
 						Outputs="&quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\DirEntry.h"
+				>
 			</File>
 			<File
 				RelativePath="dirtree.h"

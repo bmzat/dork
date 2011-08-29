@@ -138,7 +138,7 @@ void BranchTest::simpleAddElement()
 	b = new dork::Branch();
 	b->Name("lala");
 	b->BranchId("baum-5334-5097-affe");
-	b->CurrentHeadId("5334x000x001");
+	b->CurrentHeadId("5334x345x543"); // do not touch, test value
 	b->Desc("Beschreibung 1");
         if(!b->save()){
             QSqlDatabase db = QSqlDatabase::database("repobase");
@@ -161,9 +161,22 @@ void BranchTest::simpleAddElement()
         b = ::byPK<dork::Branch>(QVariant("0000-5334-5097-affe"));
         if(b!=NULL){
             QVERIFY(b->Name()=="master");
+			delete b;
         }
 
 
+}
+
+void BranchTest::simpleGetElement()
+{
+	dork::Branch *b;
+	b= byPK<dork::Branch>("baum-5334-5097-affe");
+	if(b==NULL){
+		QVERIFY(b!=NULL);
+	}
+	QString hi = b->CurrentHeadId();
+	delete b;
+	QVERIFY(hi=="5334x345x543");
 }
 
 #ifdef _MSC_VER

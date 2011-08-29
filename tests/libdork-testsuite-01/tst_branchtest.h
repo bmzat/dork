@@ -21,6 +21,7 @@ private Q_SLOTS:
 		void initTestCase();
 		void cleanupTestCase();
 		void simpleAddElement();
+		void simpleGetElement();
 
 private:
         dork::Repository *repo;

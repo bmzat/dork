@@ -11,6 +11,8 @@ class LIBDORKSHARED_EXPORT DirTree : public QDjangoModel
 public:
     explicit DirTree(QObject *parent = 0);
 
+
+
 };
 
 } // namespace dork
