@@ -17,5 +17,6 @@ TEMPLATE = app
 INCLUDEPATH += ../../src/qdjango ../../src/dorkcore
 
 LIBS += -L$$DESTDIR -ldorkcore
-SOURCES += tst_repositorytest.cpp
+SOURCES += tst_repositorytest.cpp main.cpp
+HEADERS += tst_repositorytest.h
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
